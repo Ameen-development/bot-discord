@@ -4,12 +4,15 @@ const client = new Discord.Client();
 
 
 client.on('message', roodx=>{
-  var rr = ['hi','hello','waht','good','sad'];
   if(roodx.content === 'hi'){
    var embed = new Discord.RichEmbed()
    .setColor('RANDOM')
-   .setDescription(`${rr[Math.floor(Math.random() * rr.length)]}`)
-   roodx.channel.sendEmbed(embed)
+   .setDescription(`pong`)
+   roodx.channel.sendEmbed(embed).then(m=>{
+     var em = new Discord.RichEmbed()
+     .setDescription(m.timestamp - roodx.timestamp)
+m.edit()
+})
   }
 })
 
